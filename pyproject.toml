@@ -5,7 +5,16 @@ description = "Minimal Redis Agent Kit demo with a tiny UI and UV workflow"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "langchain-openai>=1.1.13",
+    "langgraph>=1.1.6",
+    "python-dotenv>=1.2.2",
     "redis-agent-kit[all]",
+]
+
+[project.optional-dependencies]
+benchmark = [
+    "matplotlib>=3.10.8",
+    "pandas>=3.0.2",
 ]
 
 [tool.uv.sources]

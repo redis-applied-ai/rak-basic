@@ -223,7 +223,6 @@
   <div class="shell">
     <section class="hero">
       <div class="eyebrow">Redis Agent Kit Demo</div>
-      <h1>RAK user perspective</h1>
       <p>
         This demo shows how RAK makes async updates and tasking easier.
       </p>
@@ -262,7 +261,7 @@
       </div>
 
       <div class="card panel">
-        <h3>What This Smoke Tests</h3>
+        <h3>Features demonstrated</h3>
         <div class="grid-list">
           <div class="fact">
             <strong>Task Lifecycle</strong>
@@ -278,21 +277,19 @@
           </div>
           <div class="fact">
             <strong>Protocol Surface</strong>
-            REST, A2A, and ACP are enabled. MCP is available via the optional file in this directory.
+            See <a href="/protocol"><code>/protocol</code></a> for quick A2A, ACP, and MCP examples for this demo.
           </div>
         </div>
 
         <h3 style="margin-top: 20px;">Useful Endpoints</h3>
         <div class="grid-list">
           <div class="fact"><strong>UI</strong><code>/demo</code></div>
+          <div class="fact"><strong>Protocols</strong><a href="/protocol"><code>/protocol</code></a></div>
+          <div class="fact"><strong>Task List</strong><a href="/tasks"><code>/tasks</code></a></div>
           <div class="fact"><strong>REST</strong><code>/chat</code>, <code>/tasks/{id}</code>,
             <code>/tasks/{id}/stream</code>
           </div>
           <div class="fact"><strong>A2A</strong><code>/.well-known/agent.json</code></div>
-          <div class="fact"><strong>ACP</strong><code>/agents</code>, <code>/runs</code></div>
-          <div class="fact"><strong>OpenAPI</strong><code>/docs</code></div>
-          <div class="fact"><strong>Pipelines</strong><code>/pipelines/*</code> for the built-in RAG ingestion path
-          </div>
         </div>
 
         <p class="tiny" style="margin-top: 18px;">
@@ -438,6 +435,7 @@
 
       resetRun();
       appendBubble("user", message);
+      messageEl.value = "";
       setState("queued");
 
       const response = await fetch("/chat", {
