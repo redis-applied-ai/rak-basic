@@ -22,7 +22,7 @@
   const sessionId =
     localStorage.getItem("rak-demo-session") || crypto.randomUUID();
   localStorage.setItem("rak-demo-session", sessionId);
-  sessionPill.textContent = "session: " + sessionId.slice(0, 8);
+  sessionPill.textContent = "Session: " + sessionId.slice(0, 8);
 
   /* --- State pill styling --- */
 
@@ -37,7 +37,7 @@
   };
 
   function setState(value) {
-    statePill.textContent = "state: " + value;
+    statePill.textContent = "State: " + value;
     statePill.className = "pill " + (STATE_CLASSES[value] || "");
   }
 
@@ -223,7 +223,7 @@
 
       const data = await res.json();
       activeTaskId = data.task_id;
-      taskPill.textContent = "task: " + activeTaskId.slice(0, 8);
+      taskPill.textContent = "Task: " + activeTaskId.slice(0, 8);
 
       openStream(activeTaskId);
       startPolling(activeTaskId);

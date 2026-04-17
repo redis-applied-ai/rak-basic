@@ -14,26 +14,27 @@
 
 <body>
   <header class="site-header">
-    <h1 class="site-header__label">Agent Kit Demo</h1>
-    <nav class="site-header__nav">
-      <a href="/demo" class="active">Chat</a>
-      <a href="/tasks">Tasks</a>
-      <a href="/protocol">Protocol</a>
-    </nav>
+    <div class="site-header__inner">
+      <h1 class="site-header__label">Agent Kit Demo</h1>
+      <nav class="site-header__nav">
+        <a href="/demo" class="active">Chat</a>
+        <a href="/tasks">Tasks</a>
+        <a href="/protocol">Protocol</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="chat-wrap">
-    <div class="chat-status">
-      <span class="pill" id="session-pill">session: pending</span>
-      <span class="pill" id="task-pill">task: none</span>
-      <span class="pill pill--idle" id="state-pill">state: idle</span>
+  <div class="chat-status">
+    <div class="chat-status__inner">
+      <span class="pill" id="session-pill">Session: pending</span>
+      <span class="pill" id="task-pill">Task: none</span>
+      <span class="pill pill--idle" id="state-pill">State: idle</span>
     </div>
+  </div>
 
+  <main class="chat-wrap">
     <div class="chat-transcript" id="transcript">
       <div class="chat-empty" id="empty-state">
-        <svg class="chat-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
         <div class="chat-empty__title">What can I help you with?</div>
         <div class="chat-empty__hint">Ask about Redis Agent Kit, or try a quick prompt below to see tasking and approval flows in action.</div>
       </div>
@@ -50,27 +51,15 @@
     <ol class="chat-updates" id="updates"></ol>
 
     <div class="composer">
-      <div class="composer__chips">
-        <button class="btn btn-secondary btn-xs" data-prompt="Summarize why background workers help agent reliability.">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Safe prompt
-        </button>
-        <button class="btn btn-secondary btn-xs" data-prompt="Delete the production cache after the blog ships.">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Approval prompt
-        </button>
-      </div>
       <div class="composer__row">
-        <textarea class="composer__input" id="message" rows="1"
+        <textarea class="composer__input" id="message" rows="10"
           placeholder="Ask something..."></textarea>
-        <button class="composer__send" id="send" aria-label="Send message">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"/>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-          </svg>
-        </button>
       </div>
-      <div class="composer__hint">Ctrl+Enter to send</div>
+      <div class="composer__chips">
+        <button class="btn btn-secondary btn-xs" data-prompt="Summarize why background workers help agent reliability.">Safe prompt</button>
+        <button class="btn btn-secondary btn-xs" data-prompt="Delete the production cache after the blog ships.">Approval prompt</button>
+        <button class="btn btn-primary btn-xs composer__send" id="send">Send</button>
+      </div>
     </div>
   </main>
 
