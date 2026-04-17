@@ -32,6 +32,7 @@ REDIS_URL = (
 PREFIX = "rak"
 QUEUE_NAME = "minimal_release_demo"
 STREAM_CONFIG = StreamConfig(enabled=True, channels={ChannelScope.TASK})
+EM_DASH = "\u2014"
 STATIC_DIR = Path(__file__).with_name("static")
 DEMO_HTML = (STATIC_DIR / "index.html").read_text()
 PROTOCOL_HTML = (STATIC_DIR / "protocol.html").read_text()
@@ -115,14 +116,14 @@ _STATUS_PILL_CLASS = {
 def _tasks_html(tasks: list[Any], limit: int) -> str:
     rows = []
     for task in tasks:
-        preview = escape(_task_preview(task)[:180] or "\u2014")
+        preview = escape(_task_preview(task)[:180] or EM_DASH)
         status_val = escape(task.status.value)
         pill_cls = _STATUS_PILL_CLASS.get(task.status.value, "")
         rows.append(
             "<tr>"
             f"<td><a href='/tasks/{escape(task.task_id)}'><code>{escape(task.task_id)}</code></a></td>"
             f"<td><span class='pill {pill_cls}'>{status_val}</span></td>"
-            f"<td><code>{escape(task.session_id or '\u2014')}</code></td>"
+            f"<td><code>{escape(task.session_id or EM_DASH)}</code></td>"
             f"<td>{escape(task.updated_at.isoformat(timespec='seconds'))}</td>"
             f"<td>{preview}</td>"
             f"<td><a href='/tasks/{escape(task.task_id)}/stream'>stream</a></td>"
