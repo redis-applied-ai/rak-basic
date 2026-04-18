@@ -107,7 +107,8 @@ pre {
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
-  max-width: 760px;
+  max-width: 1060px;
+  padding: 0 2rem;
   margin: 0 auto;
 }
 
@@ -370,7 +371,8 @@ body.chat-page {
   flex: 1;
   min-height: 0;
   width: 100%;
-  max-width: 760px;
+  max-width: 1060px;
+  padding: 0 2rem;
   margin: 0 auto;
 }
 
@@ -386,7 +388,8 @@ body.chat-page {
   flex-wrap: wrap;
   gap: 10px;
   width: 100%;
-  max-width: 760px;
+  max-width: 1060px;
+  padding: 0 2rem;
   margin: 0 auto;
 }
 
@@ -646,6 +649,7 @@ body.chat-page {
 
 .page-wrap {
   max-width: 1060px;
+  padding: 0 2rem;
   margin: 0 auto;
   padding: var(--space-md) var(--container-padding) var(--space-lg);
 }
@@ -1141,19 +1145,6 @@ body.chat-page {
   .grid--3 {
     grid-template-columns: 1fr;
   }
-
-  .site-header__inner {
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
-  .site-header__nav {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
 
   .architecture__diagram {
     flex-direction: column;
