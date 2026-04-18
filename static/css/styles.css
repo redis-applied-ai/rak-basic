@@ -845,7 +845,7 @@ body.chat-page {
 
 .architecture__title {
   font-size: 1rem;
-  color: var(--fg-secondary);
+  color: var(--fg-body);
   margin-bottom: 0.5rem;
 }
 
