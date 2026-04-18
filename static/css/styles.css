@@ -107,8 +107,8 @@ pre {
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
-  max-width: 1060px;
-  padding: 0 2rem;
+  max-width: var(--container-chrome-max);
+  padding: 0 var(--container-chrome-padding);
   margin: 0 auto;
 }
 
@@ -371,8 +371,8 @@ body.chat-page {
   flex: 1;
   min-height: 0;
   width: 100%;
-  max-width: 1060px;
-  padding: 0 2rem;
+  max-width: var(--container-chrome-max);
+  padding: 0 var(--container-chrome-padding);
   margin: 0 auto;
 }
 
@@ -388,8 +388,8 @@ body.chat-page {
   flex-wrap: wrap;
   gap: 10px;
   width: 100%;
-  max-width: 1060px;
-  padding: 0 2rem;
+  max-width: var(--container-chrome-max);
+  padding: 0 var(--container-chrome-padding);
   margin: 0 auto;
 }
 
@@ -648,10 +648,9 @@ body.chat-page {
 /* === Protocol Page === */
 
 .page-wrap {
-  max-width: 1060px;
-  padding: 0 2rem;
+  max-width: var(--container-chrome-max);
   margin: 0 auto;
-  padding: var(--space-md) var(--container-padding) var(--space-lg);
+  padding: var(--space-md) var(--container-chrome-padding) var(--space-lg);
 }
 
 .hero {

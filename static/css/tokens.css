@@ -96,6 +96,8 @@
   /* Layout */
   --container-max: 86.875rem;
   --container-padding: 1.5rem;
+  --container-chrome-max: 1060px;
+  --container-chrome-padding: 2rem;
 
   /* Radii */
   --radius-pill: 10px;
