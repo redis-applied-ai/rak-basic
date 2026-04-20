@@ -6,23 +6,23 @@
   const sendEl       = $("#send");
   const transcriptEl = $("#transcript");
   const emptyStateEl = $("#empty-state");
-  const updatesEl    = $("#updates");
   const approvalBox  = $("#approval-box");
   const approvalText = $("#approval-text");
   const sessionPill  = $("#session-pill");
   const taskPill     = $("#task-pill");
   const statePill    = $("#state-pill");
 
-  let activeTaskId   = null;
-  let stream         = null;
-  let poller         = null;
+  let activeTaskId    = null;
+  let stream          = null;
+  let poller          = null;
   let assistantBubble = null;
-  let typingEl       = null;
+  let updatesEl       = null;
+  let typingEl        = null;
 
   const sessionId =
     localStorage.getItem("rak-demo-session") || crypto.randomUUID();
   localStorage.setItem("rak-demo-session", sessionId);
-  sessionPill.textContent = "session: " + sessionId.slice(0, 8);
+  sessionPill.textContent = "Session: " + sessionId.slice(0, 8);
 
   /* --- State pill styling --- */
 
@@ -37,7 +37,7 @@
   };
 
   function setState(value) {
-    statePill.textContent = "state: " + value;
+    statePill.textContent = "State: " + value;
     statePill.className = "pill " + (STATE_CLASSES[value] || "");
   }
 
@@ -62,9 +62,14 @@
   }
 
   function appendUpdate(text) {
+    if (!updatesEl) {
+      updatesEl = cloneTemplate("tpl-updates");
+      transcriptEl.appendChild(updatesEl);
+    }
     const li = document.createElement("li");
     li.textContent = text;
     updatesEl.appendChild(li);
+    scrollToBottom();
   }
 
   function scrollToBottom() {
@@ -93,8 +98,8 @@
   function resetRun() {
     approvalBox.classList.remove("visible");
     approvalText.textContent = "Waiting for approval.";
-    updatesEl.innerHTML = "";
     assistantBubble = null;
+    updatesEl = null;
     hideTyping();
     if (stream) { stream.close(); stream = null; }
     if (poller) { clearInterval(poller); poller = null; }
@@ -209,6 +214,8 @@
 
     resetRun();
     appendBubble("user", message);
+    updatesEl = cloneTemplate("tpl-updates");
+    transcriptEl.appendChild(updatesEl);
     messageEl.value = "";
     autoResize();
     setState("queued");
@@ -223,7 +230,7 @@
 
       const data = await res.json();
       activeTaskId = data.task_id;
-      taskPill.textContent = "task: " + activeTaskId.slice(0, 8);
+      taskPill.textContent = "Task: " + activeTaskId.slice(0, 8);
 
       openStream(activeTaskId);
       startPolling(activeTaskId);

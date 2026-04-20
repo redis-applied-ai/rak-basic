@@ -96,10 +96,12 @@
   /* Layout */
   --container-max: 86.875rem;
   --container-padding: 1.5rem;
+  --container-chrome-max: 1060px;
+  --container-chrome-padding: 2rem;
 
   /* Radii */
-  --radius-pill: 200px;
-  --radius-rounded: 5px;
-  --radius-card: 12px;
-  --radius-code: 8px;
+  --radius-pill: 10px;
+  --radius-rounded: 2.5px;
+  --radius-card: 5px;
+  --radius-code: 5px;
 }
