@@ -28,11 +28,14 @@ The main point is that this does not require much code. The API entry point stay
 uv sync
 ```
 
-Create a `.env` file with your API key before you start the server or worker:
+Create a `.env` file before you start the server or worker (copy `.env.example`):
 
 ```bash
 OPENAI_API_KEY=your-key-here
+RAK_MEMORY__ENABLED=false
 ```
+
+`RAK_MEMORY__ENABLED=false` is required on Python 3.11 because `redis-agent-kit >= 0.1.1` enables memory by default and `agent-memory-server` only resolves on 3.12.
 
 ```bash
 docker run -d -p 6379:6379 redis:8
